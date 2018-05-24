@@ -5,6 +5,7 @@ import java.util.Set;
 public abstract class Term {
 
 	private float value;
+	private Fraction fractionValue;
 	
 	protected Term(float value){
 		this.value = value;
