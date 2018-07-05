@@ -315,7 +315,7 @@ public class ExpressionTest {
 	public void toStringTest() {
 		Expression expression = new ExpressionBuilder()
 								.term(93).term(-12,"x").term(27,"x").build();
-		assertEquals(" +93.0 -12.0x +27.0x", expression.toString());
+		assertEquals(" +(93/1) -(12/1)x +(27/1)x", expression.toString());
 	}
 	
 	@Test

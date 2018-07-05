@@ -67,7 +67,7 @@ public class Fraction {
 
 	@Override
 	public String toString() {
-		return "(" + this.num + "/" + this.den + ")";
+		return "(" + Math.abs(this.num )+ "/" + this.den + ")";
 	}
 
 }

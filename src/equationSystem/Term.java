@@ -30,6 +30,7 @@ public abstract class Term {
 
 	public void multiply(float value) {
 		this.value *= value;
+		this.fractionValue = fractionate(this.value);
 	}
 
 	public boolean hasName(String name) {
@@ -51,7 +52,7 @@ public abstract class Term {
 	
 	@Override
 	public String toString() {
-		return " " + (value>=0?"+":"") + value;
+		return " " + (value>=0?"+":"-") + this.fractionValue.toString();
 	}
 	
 	public abstract void dispatch(TermVisitor termVisitor);
