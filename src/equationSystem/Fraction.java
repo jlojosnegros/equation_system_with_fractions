@@ -54,17 +54,21 @@ public class Fraction {
 		// ecluides's alg
 		int a = Math.abs(num);
 		int b = Math.abs(den);
-		while (b != 0) {
-			if (a > b) {
-				a = a - b;
-			} else {
-				b = b - a;
-			}
+		if (a > 0 && b > 0) {
+			int gcd = this.gcd(a,b);
+			this.num /= gcd;
+			this.den /= gcd;
 		}
-		this.num /= a;
-		this.den /= a;
 	}
-
+	private int gcd(int a, int b ) {
+		if (a == b) return a;
+		if (a > b) {
+			return gcd(a-b, b);
+		}
+		else {
+			return gcd(a,b-a);
+		}
+	}
 	@Override
 	public String toString() {
 		return "(" + Math.abs(this.num )+ "/" + this.den + ")";
