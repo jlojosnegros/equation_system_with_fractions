@@ -110,6 +110,14 @@ public class Equation {
 		}
 	}
 
+	public void apply(String name, Fraction value) {
+		for(Side side : Side.values()){
+			if (members.get(side).hasName(name)){
+				members.get(side).apply(name, value);
+			}
+		}
+	}
+
 	public void invert() {
 		Equation equation = new Equation(new Expression[]{
 								this.members.get(Side.RIGHT),

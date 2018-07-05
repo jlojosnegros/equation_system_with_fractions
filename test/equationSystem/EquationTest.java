@@ -112,4 +112,13 @@ public class EquationTest {
 		assertTrue(result.equal(equation));
 	}
 
+	@Test
+	public void applyUsingFractionsTest() {
+		Equation equation = new EquationBuilder()
+				.term(-2, "x").term(3, "y").equals().term(6).build();
+		equation.apply("x", new Fraction(20, 2));
+		Equation result = new EquationBuilder()
+				.term(3, "y").term(-20).equals().term(6).build();
+		assertTrue(result.equal(equation));
+	}
 }
