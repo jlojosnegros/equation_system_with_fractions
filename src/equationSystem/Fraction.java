@@ -17,6 +17,12 @@ public class Fraction {
 		return result;
 	}
 
+	public Fraction multiply(Fraction value) {
+		Fraction result = new Fraction(value.num * num, value.den * den);
+		result.simplify();
+		return result;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
