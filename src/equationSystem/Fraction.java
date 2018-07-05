@@ -35,9 +35,12 @@ public class Fraction {
 		if (getClass() != obj.getClass())
 			return false;
 		Fraction other = (Fraction) obj;
-		if (den != other.den)
+		Fraction me = this;
+		other.simplify();
+		me.simplify();
+		if (me.den != other.den)
 			return false;
-		if (num != other.num)
+		if (me.num != other.num)
 			return false;
 		return true;
 	}

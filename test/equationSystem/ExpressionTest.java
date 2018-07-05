@@ -18,6 +18,14 @@ public class ExpressionTest {
 		expresion.add(variable);
 		assertEquals(variable.getValue(), expresion.getValue(variable.getName()), 0);
 	}
+
+	@Test
+	public void addVariableUsingFractionsToEmptyExpressionTest() {
+		Variable variable = new Variable(6, 2,"a");
+		Expression expresion = new ExpressionBuilder().build();
+		expresion.add(variable);
+		assertEquals(variable.getFractionValue(), expresion.getFractionValue(variable.getName()));
+	}
 	
 	@Test
 	public void addVariableToNotEmptyExpressionTest() {
@@ -26,6 +34,15 @@ public class ExpressionTest {
 					.term(2,"x").term(-4,"x").term(100).term(-5,"y").build();
 		expresion.add(variable);
 		assertEquals(variable.getValue(), expresion.getValue(variable.getName()), 0);
+	}
+
+	@Test
+	public void addVariableUsingFractionsToNotEmptyExpressionTest() {
+		Variable variable = new Variable(-15, 3,"z");
+		Expression expresion= new ExpressionBuilder()
+				.term(2,"x").term(-4,"x").term(100).term(-5,"y").build();
+		expresion.add(variable);
+		assertEquals(variable.getFractionValue(), expresion.getFractionValue(variable.getName()));
 	}
 	
 	@Test
@@ -36,6 +53,16 @@ public class ExpressionTest {
 					.term(valueRepeated,variable.getName()).build();
 		expression.add(variable);
 		assertEquals(valueRepeated, expression.getValue(variable.getName()), 0);
+	}
+
+	@Test
+	public void addRepeatedVariableUsingFractionsToExpressionTest() {
+		Variable variable = new Variable(38, 2,"x");
+		float valueRepeated = 7;
+		Expression expression= new ExpressionBuilder()
+				.term(valueRepeated,variable.getName()).build();
+		expression.add(variable);
+		assertEquals(valueRepeated, expression.getFractionValue(variable.getName()).toNumber(), 0);
 	}
 	
 	@Test
@@ -62,6 +89,15 @@ public class ExpressionTest {
 		Expression expression= new ExpressionBuilder().term(valueRepeated).build();
 		expression.add(constant);
 		assertEquals(valueRepeated, expression.getValue(), 0);
+	}
+
+	@Test
+	public void addRepeatedConstantUsingFractionsToExpressionTest() {
+		Constant constant = new Constant(38,2);
+		float valueRepeated = 7;
+		Expression expression= new ExpressionBuilder().term(valueRepeated).build();
+		expression.add(constant);
+		assertEquals(valueRepeated, expression.getFractionValue().toNumber(), 0);
 	}
 	
 	@Test 

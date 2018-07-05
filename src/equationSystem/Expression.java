@@ -152,5 +152,27 @@ public class Expression {
 		}
 		return result;
 	}
-	
+
+	public Fraction getFractionValue(String name) {
+		assert this.getNameSet().contains(name);
+		for(Term term : termList){
+			if (term.hasName(name)){
+				return term.getFractionValue();
+			}
+		}
+		return new Fraction(0,1);
+
+	}
+
+	public Fraction getFractionValue() {
+		assert !this.empty();
+		Set<String> nameSet = this.getNameSet();
+		for(Term term : termList){
+			if (!term.hasName(nameSet)){
+				return term.getFractionValue();
+			}
+		}
+		return new Fraction(0,1);
+
+	}
 }
