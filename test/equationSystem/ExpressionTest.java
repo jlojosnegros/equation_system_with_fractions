@@ -311,6 +311,19 @@ public class ExpressionTest {
 								.term(-8,"x").term(2).term(value*appliedValue).build();
 		assertTrue(result.equal(expression));
 	}
+
+	@Test
+	public void applyUsingFractionsTest() {
+		int value = 4;
+		String name = "y";
+		Fraction appliedValue = new Fraction(9,3);
+		Expression expression = new ExpressionBuilder()
+				.term(-8,"x").term(value,name).term(2).build();
+		expression.apply(name, appliedValue);
+		Expression result = new ExpressionBuilder()
+				.term(-8,"x").term(2).term(appliedValue.multiply(value)).build();
+		assertTrue(result.equal(expression));
+	}
 	
 	@Test
 	public void apply2Test() {
@@ -319,6 +332,16 @@ public class ExpressionTest {
 		expression.apply("x",10);
 		Expression result = new ExpressionBuilder()
 								.term(3, "y").term(6).term(-20).build();
+		assertTrue(result.equal(expression));
+	}
+
+	@Test
+	public void apply2UsingFractionsTest() {
+		Expression expression = new ExpressionBuilder()
+				.term(new Fraction(-20, 10), "x").term(3, "y").term(6).build();
+		expression.apply("x",new Fraction(100, 10));
+		Expression result = new ExpressionBuilder()
+				.term(3, "y").term(6).term(-20).build();
 		assertTrue(result.equal(expression));
 	}
 	

@@ -120,6 +120,20 @@ public class Expression {
 		this.termList = expresion.termList;
 	}
 
+	public void apply(String name, Fraction fractionValue) {
+		Expression expresion = new Expression();
+		Constant constant = null;
+		for(Term term : termList){
+			if (term.hasName(name)){
+				constant = new Constant(fractionValue.multiply(term.getFractionValue()));
+			} else {
+				expresion.add(term.clon());
+			}
+		}
+		expresion.termList.add(constant);
+		this.termList = expresion.termList;
+	}
+
 	public boolean equal(Expression expresion) {
 		assert expresion != null;
 		if (this == expresion)

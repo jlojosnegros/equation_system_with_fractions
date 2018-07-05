@@ -12,8 +12,18 @@ public class ExpressionBuilder {
 		expression.add(new Variable(value, name));
 		return this;
 	}
+
+	public ExpressionBuilder term(Fraction value, String name){
+		expression.add(new Variable(value, name));
+		return this;
+	}
 	
 	public ExpressionBuilder term(float value){
+		expression.add(new Constant(value));
+		return this;
+	}
+
+	public ExpressionBuilder term(Fraction value){
 		expression.add(new Constant(value));
 		return this;
 	}
