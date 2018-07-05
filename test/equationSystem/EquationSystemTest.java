@@ -48,4 +48,17 @@ public class EquationSystemTest {
 		assertEquals(0.6315789, equationSystem.getSolution(name2), precission);		
 	}
 
+	@Test
+	public void substitutionMethodTestUsingFractions() {
+		String name1 = "x";
+		String name2 = "y";
+		EquationSystem equationSystem = new EquationSystemBuilder()
+				.equation().term(2,name1).term(4,name2).equals().term(4)
+				.equation().term(5,name1).term(-9,name2).equals().term(-2)
+				.build();
+		equationSystem.resolveUsingFractions(new SubstitutionMethod());
+		assertEquals(new Fraction(14,19), equationSystem.getSolutionUsingFractions(name1));
+		assertEquals(new Fraction(12, 19), equationSystem.getSolutionUsingFractions(name2));
+	}
+
 }
