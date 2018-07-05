@@ -15,8 +15,17 @@ public abstract class Term {
 		this.fractionValue = new Fraction(num,denom);
 		this.value = this.fractionValue.toNumber();
 	}
+	protected Term(Fraction fraction) {
+		this.fractionValue = fraction;
+		this.value = this.fractionValue.toNumber();
+	}
+
 	public float getValue() {
 		return value;
+	}
+
+	public Fraction getFractionValue() {
+		return fractionValue;
 	}
 
     private Fraction fractionate(float value) {

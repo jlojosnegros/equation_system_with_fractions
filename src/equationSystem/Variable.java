@@ -16,6 +16,11 @@ public class Variable extends Term {
 		initName(name);
 	}
 
+	public Variable(Fraction fraction, String name) {
+		super (fraction);
+		initName(name);
+	}
+
 	private void initName(String name) {
 		assert name != null && !name.equals("");
 		this.name = name;

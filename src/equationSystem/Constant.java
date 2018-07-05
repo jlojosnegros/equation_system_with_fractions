@@ -8,7 +8,9 @@ public class Constant extends Term {
 	public Constant (int num, int den) {
 		super (num, den);
 	}
-	
+	public Constant (Fraction fraction) {
+		super (fraction);
+	}
 	@Override
 	public boolean equal(Term term) {
 		assert term != null;
@@ -17,7 +19,7 @@ public class Constant extends Term {
 
 	@Override
 	public Term clon() {
-		return new Constant(this.getValue());
+		return new Constant(this.getFractionValue());
 	}
 
 	@Override
