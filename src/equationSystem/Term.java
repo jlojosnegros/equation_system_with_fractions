@@ -9,12 +9,25 @@ public abstract class Term {
 	
 	protected Term(float value){
 		this.value = value;
+        this.fractionValue = fractionate(value);
 	}
 	
 	public float getValue() {
 		return value;
 	}
-	
+
+    private Fraction fractionate(float value) {
+        float threshold = (float) 0.000005;
+        int denominator = 1;
+        while (Math.abs(value - Math.round(value)) > threshold)
+        {
+            value *= 10.0;
+            threshold *= 10.0;
+            denominator*= 10;
+        }
+        return new Fraction((int) value, denominator);
+    }
+
 	public void multiply(float value) {
 		this.value *= value;
 	}
