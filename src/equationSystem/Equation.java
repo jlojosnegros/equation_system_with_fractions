@@ -55,9 +55,22 @@ public class Equation {
 		}
 		return (float) 0.0;
 	}
+
+	public Fraction getFractionValue(String name) {
+		for(Expression expresion : members.values()){
+			if (expresion.hasName(name)){
+				return expresion.getFractionValue(name);
+			}
+		}
+		return new Fraction(0,1);
+	}
 	
 	public float getValue(Side side) {
 		return this.getExpression(side).getValue();
+	}
+
+	public Fraction getFractionValue(Side side) {
+		return this.getExpression(side).getFractionValue();
 	}
 	
 	public void simplify(Side side, String name){
