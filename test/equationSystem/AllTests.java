@@ -9,6 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
 	EquationSystemTest.class, 
 	EquationTest.class,
 	FractionTest.class,
+	TermTest.class,
 	ExpressionTest.class })
 public class AllTests {
 

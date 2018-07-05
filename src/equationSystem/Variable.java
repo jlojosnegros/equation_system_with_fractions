@@ -11,6 +11,12 @@ public class Variable extends Term {
 		assert name != null && !name.equals("");
 		this.name = name;
 	}
+
+	public Variable(int num, int denom, String name) {
+		super (num, denom);
+		assert name != null && !name.equals("");
+		this.name = name;
+	}
 	
 	public String getName() {
 		return name;

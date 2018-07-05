@@ -11,7 +11,10 @@ public abstract class Term {
 		this.value = value;
         this.fractionValue = fractionate(value);
 	}
-	
+	protected Term(int num, int denom) {
+		this.fractionValue = new Fraction(num,denom);
+		this.value = (float)num / (float)denom;
+	}
 	public float getValue() {
 		return value;
 	}

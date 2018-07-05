@@ -5,6 +5,9 @@ public class Constant extends Term {
 	public Constant(float value){
 		super(value);
 	}
+	public Constant (int num, int den) {
+		super (num, den);
+	}
 	
 	@Override
 	public boolean equal(Term term) {
