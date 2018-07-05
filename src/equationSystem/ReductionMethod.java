@@ -14,6 +14,19 @@ public class ReductionMethod extends SolutionMethod {
 		this.clearIncognitoLastEquation(names[0]);
 		this.seStolution(names[0], this.getLastEquation(1));
 	}
+
+	@Override
+	protected void resolveUsingFractions() {
+		super.resolve();
+		String names[] = this.prepareNames();
+		this.crossingMultiplyTwoLastEquationsUsingFractions(names[0]);
+		this.addTwoLastEquations(names);
+		this.clearIncognitoLastEquation(names[1]);
+		this.seStolution(names[1], this.getLastEquation(1));
+		this.applyFirstEquationWithLastEquation(names);
+		this.clearIncognitoLastEquation(names[0]);
+		this.seStolution(names[0], this.getLastEquation(1));
+	}
 	
 	private void crossingMultiplyTwoLastEquations(String name) {
 		float value1 = this.getLastEquation(2).getValue(name);
@@ -22,6 +35,15 @@ public class ReductionMethod extends SolutionMethod {
 		this.getLastEquation(1).multiply(value2);
 		this.copyLastEquation(2);
 		this.getLastEquation(1).multiply(-value1);
+	}
+
+	private void crossingMultiplyTwoLastEquationsUsingFractions(String name) {
+		Fraction value1 = this.getLastEquation(2).getFractionValue(name);
+		Fraction value2 = this.getLastEquation(1).getFractionValue(name);
+		this.copyLastEquation(2);
+		this.getLastEquation(1).multiply(value2);
+		this.copyLastEquation(2);
+		this.getLastEquation(1).multiply(value1.multiply(-1));
 	}
 
 	private void addTwoLastEquations(String[] names) {

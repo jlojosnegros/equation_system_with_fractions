@@ -33,6 +33,10 @@ public abstract class SolutionMethod {
 	protected void resolve(){
 		assert this.nameSet.size() == 2; //TODO Verificador de todo ...
 	}
+
+	protected void resolveUsingFractions(){
+		assert this.nameSet.size() == 2; //TODO Verificador de todo ...
+	}
 	
 	protected void copyLastEquation(int before){
 		this.equationList.add(this.getLastEquation(before).clon());
