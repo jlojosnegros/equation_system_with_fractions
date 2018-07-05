@@ -90,4 +90,9 @@ public class Fraction {
 	public boolean isZero() {
 		return (this.num == 0) && (this.den != 0);
 	}
+
+	public Fraction invert() {
+		assert(this.num != 0);
+		return new Fraction(this.den, this.num);
+	}
 }

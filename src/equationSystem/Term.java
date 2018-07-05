@@ -46,7 +46,7 @@ public abstract class Term {
 	}
 
 	public void multiply(Fraction value) {
-		this.fractionValue.multiply(value);
+		this.fractionValue = this.fractionValue.multiply(value);
 		this.value = this.fractionValue.toNumber();
 	}
 

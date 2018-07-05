@@ -25,11 +25,24 @@ public class EquationSystem {
 		this.solutionMethod.set(equationList);
 		this.solutionMethod.resolve();
 	}
+
+	public void resolveUsingFractions(SolutionMethod solutionMethod){
+		assert solutionMethod != null;
+		this.solutionMethod = solutionMethod;
+		this.solutionMethod.set(equationList);
+		this.solutionMethod.resolveUsingFractions();
+	}
 	
 	public float getSolution(String name){
 		assert name != null && !name.equals("");
 		assert this.solutionMethod != null;
 		return this.solutionMethod.getSolution(name);
+	}
+
+	public Fraction getSolutionUsingFractions(String name){
+		assert name != null && !name.equals("");
+		assert this.solutionMethod != null;
+		return this.solutionMethod.getSolutionUsingFractions(name);
 	}
 	
 	protected boolean equal(EquationSystem equationSystem){

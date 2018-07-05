@@ -65,6 +65,11 @@ public abstract class SolutionMethod {
 		assert nameSet.contains(name);
 		return this.solutions.get(name).getValue(Side.RIGHT);
 	}
+
+	protected Fraction getSolutionUsingFractions(String name) {
+		assert nameSet.contains(name);
+		return this.solutions.get(name).getFractionValue(Side.RIGHT);
+	}
 	
 	protected String[] prepareNames(){
 		String names[] = new String[this.nameSet.size()];
