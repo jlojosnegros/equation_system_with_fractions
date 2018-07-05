@@ -36,16 +36,17 @@ public class Expression {
 	
 	public void simplify(String name){
 		Expression expresion = new Expression();
-		float value = 0;
+
+		Fraction fractionValue = new Fraction(0,1);
 		for(Term term : this.termList){
 			if (term.hasName(name)){
-				value += term.getValue();
+				fractionValue = fractionValue.add(term.getFractionValue());
 			} else {
 				expresion.add(term.clon());
 			}
 		}
-		if (value!=0){
-			expresion.add(new Variable(value, name));
+		if (!fractionValue.isZero()){
+			expresion.add(new Variable(fractionValue, name));
 		}
 		this.termList = expresion.termList;
 	}
@@ -53,16 +54,17 @@ public class Expression {
 	public void simplify() {
 		Set<String> nameSet = this.getNameSet();
 		Expression expresion = new Expression();
-		float value = 0;
+		Fraction fractionValue = new Fraction(0,1);
 		for(Term term : termList){
 			if (term.hasName(nameSet)){
 				expresion.add(term.clon());
 			} else {
-				value += term.getValue();
+				fractionValue = fractionValue.add(term.getFractionValue());
 			}
 		}
-		if (value != 0 || expresion.termList.size()==0){
-			expresion.add(new Constant(value));
+
+		if (!fractionValue.isZero() || expresion.termList.size()==0){
+			expresion.add(new Constant(fractionValue));
 		}
 		this.termList = expresion.termList;
 	}

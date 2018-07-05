@@ -42,7 +42,7 @@ public class Fraction {
 		return true;
 	}
 
-	public Object add(Fraction fraction) {
+	public Fraction add(Fraction fraction) {
 		final int num = this.num * fraction.den + fraction.num * this.den;
 		final int den = this.den * fraction.den;
 		Fraction result = new Fraction(num, den);
@@ -78,4 +78,7 @@ public class Fraction {
 		return (float)this.num / (float)this.den;
 	}
 
+	public boolean isZero() {
+		return (this.num == 0) && (this.den != 0);
+	}
 }
