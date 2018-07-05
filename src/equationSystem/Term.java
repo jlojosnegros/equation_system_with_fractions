@@ -45,6 +45,11 @@ public abstract class Term {
 		this.fractionValue = fractionate(this.value);
 	}
 
+	public void multiply(Fraction value) {
+		this.fractionValue.multiply(value);
+		this.value = this.fractionValue.toNumber();
+	}
+
 	public boolean hasName(String name) {
 		assert name != null;
 		return false;

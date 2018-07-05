@@ -45,7 +45,13 @@ public class Equation {
 		for(Expression expresion : members.values()){
 			expresion.multiply(value);
 		}
-	}	
+	}
+
+	public void multiply(Fraction value){
+		for(Expression expresion : members.values()){
+			expresion.multiply(value);
+		}
+	}
 	
 	public float getValue(String name) {
 		for(Expression expresion : members.values()){

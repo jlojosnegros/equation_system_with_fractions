@@ -33,6 +33,12 @@ public class Expression {
 			term.multiply(value);
 		}
 	}
+
+	public void multiply(Fraction value){
+		for(Term term : termList){
+			term.multiply(value);
+		}
+	}
 	
 	public void simplify(String name){
 		Expression expresion = new Expression();
