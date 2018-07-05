@@ -13,7 +13,7 @@ public abstract class Term {
 	}
 	protected Term(int num, int denom) {
 		this.fractionValue = new Fraction(num,denom);
-		this.value = (float)num / (float)denom;
+		this.value = this.fractionValue.toNumber();
 	}
 	public float getValue() {
 		return value;

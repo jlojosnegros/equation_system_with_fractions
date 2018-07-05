@@ -70,4 +70,8 @@ public class Fraction {
 		return "(" + Math.abs(this.num )+ "/" + this.den + ")";
 	}
 
+	public float toNumber() {
+		return (float)this.num / (float)this.den;
+	}
+
 }

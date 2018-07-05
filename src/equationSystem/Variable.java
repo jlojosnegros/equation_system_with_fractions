@@ -8,16 +8,19 @@ public class Variable extends Term {
 	
 	public Variable(float value, String name){
 		super(value);
-		assert name != null && !name.equals("");
-		this.name = name;
+		initName(name);
 	}
 
 	public Variable(int num, int denom, String name) {
 		super (num, denom);
+		initName(name);
+	}
+
+	private void initName(String name) {
 		assert name != null && !name.equals("");
 		this.name = name;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
